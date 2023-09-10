@@ -25,6 +25,11 @@ export class MineScene extends cc.Component {
     start() {
         this.board.init(this);
         this.maxLevel = this.board.getMaxLevel();
+        console.log("maxLevel = ",this.maxLevel);
+        if(EngineUtil._getInstance().getLocalData("maxLevel")==undefined || EngineUtil._getInstance().getLocalData("maxLevel") == null){
+            EngineUtil._getInstance().setLocalData("maxLevel",String(this.maxLevel))
+        }
+        
         this.startGame(1);
     }
 
